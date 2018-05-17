@@ -208,6 +208,15 @@
  */
 - (void)setCustomParameters:(NSDictionary *)parameters;
 
+/**
+ *  Sets the consent status of the user. Fyber will only be able to show targeted advertising if the user consented.
+ *
+ *  @param gdprConsent The consent status of the user
+ *
+ *  @since v8.21.0
+ */
+- (void)setGDPRConsent:(BOOL)gdprConsent;
+
 ///-------------------------
 /// Getters
 ///-------------------------

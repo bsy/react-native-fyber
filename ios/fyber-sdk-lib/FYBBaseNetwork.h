@@ -58,4 +58,6 @@ typedef NS_OPTIONS(NSUInteger, FYBNetworkSupport) {
 - (void)startRewardedVideoAdapter:(NSDictionary *)data;
 - (void)startBannerAdapter:(NSDictionary *)data;
 
+- (void)setGDPRConsent:(NSInteger)gdprConsent;
+
 @end

@@ -15,6 +15,7 @@
 @import StoreKit;
 @import SystemConfiguration;
 @import QuartzCore;
+@import WebKit;
 #endif
 
 #import "FYBBannerController.h"
