@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		420DF85220AE02ED002E5C74 /* RNFyberUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 420DF85020AE02ED002E5C74 /* RNFyberUser.m */; };
 		B52AD3AB1DDA5401008AE987 /* RNFyberRewardedVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = B52AD3AA1DDA5401008AE987 /* RNFyberRewardedVideo.m */; };
 		B574985A1CEFB0AB002F1EFF /* RNFyber.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = B57498591CEFB0AB002F1EFF /* RNFyber.h */; };
 		B574985C1CEFB0AB002F1EFF /* RNFyber.m in Sources */ = {isa = PBXBuildFile; fileRef = B574985B1CEFB0AB002F1EFF /* RNFyber.m */; };
@@ -87,6 +88,8 @@
 		420DF82320ADAC2D002E5C74 /* FYBInterstitialControllerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBInterstitialControllerState.h; sourceTree = "<group>"; };
 		420DF82420ADAC2D002E5C74 /* FYBRequestParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBRequestParameters.h; sourceTree = "<group>"; };
 		420DF82520ADAC2D002E5C74 /* FYBMediationBundleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBMediationBundleInfo.h; sourceTree = "<group>"; };
+		420DF85020AE02ED002E5C74 /* RNFyberUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFyberUser.m; sourceTree = "<group>"; };
+		420DF85120AE02ED002E5C74 /* RNFyberUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFyberUser.h; sourceTree = "<group>"; };
 		B52AD3A91DDA5401008AE987 /* RNFyberRewardedVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFyberRewardedVideo.h; sourceTree = "<group>"; };
 		B52AD3AA1DDA5401008AE987 /* RNFyberRewardedVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFyberRewardedVideo.m; sourceTree = "<group>"; };
 		B57498561CEFB0AB002F1EFF /* libRNFyber.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNFyber.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,6 +195,8 @@
 		B57498581CEFB0AB002F1EFF /* RNFyber */ = {
 			isa = PBXGroup;
 			children = (
+				420DF85120AE02ED002E5C74 /* RNFyberUser.h */,
+				420DF85020AE02ED002E5C74 /* RNFyberUser.m */,
 				B52AD3A91DDA5401008AE987 /* RNFyberRewardedVideo.h */,
 				B52AD3AA1DDA5401008AE987 /* RNFyberRewardedVideo.m */,
 				B5BEC7381CF3953700153483 /* RNFyberOfferWall.m */,
@@ -260,6 +265,7 @@
 				B574985C1CEFB0AB002F1EFF /* RNFyber.m in Sources */,
 				B52AD3AB1DDA5401008AE987 /* RNFyberRewardedVideo.m in Sources */,
 				B5BEC73A1CF3953700153483 /* RNFyberOfferWall.m in Sources */,
+				420DF85220AE02ED002E5C74 /* RNFyberUser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

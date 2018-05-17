@@ -2,7 +2,7 @@ apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion 23
-    buildToolsVersion "23.0.1"
+    buildToolsVersion '27.0.3'
 
     defaultConfig {
         minSdkVersion 16
@@ -20,5 +20,6 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation 'com.fyber:fyber-sdk:8.20.0'
+    implementation 'com.google.android.gms:play-services-ads:9.2.0'
+    implementation 'com.fyber:fyber-sdk:8.21.0@aar'
 }
