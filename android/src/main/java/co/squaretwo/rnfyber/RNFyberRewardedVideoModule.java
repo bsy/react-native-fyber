@@ -4,18 +4,19 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Looper;
-import android.util.Log;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
+import com.facebook.react.bridge.ActivityEventListener;
+import com.facebook.react.bridge.BaseActivityEventListener;
 import com.facebook.react.bridge.Callback;
-import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-
-import com.fyber.Fyber;
 import com.fyber.ads.AdFormat;
+import com.fyber.ads.videos.RewardedVideoActivity;
 import com.fyber.requesters.RequestCallback;
 import com.fyber.requesters.RequestError;
 import com.fyber.requesters.RewardedVideoRequester;
@@ -33,10 +34,41 @@ public class RNFyberRewardedVideoModule extends ReactContextBaseJavaModule {
     private Intent mRewardedVideoIntent;
     private Callback requestAdCallback;
 
+    private final ActivityEventListener mActivityEventListener = new BaseActivityEventListener() {
+
+        @Override
+        public void onActivityResult(Activity activity, int requestCode, int resultCode, Intent data) {
+            // handle the closing of the video
+            if (resultCode == Activity.RESULT_OK && requestCode == REWARDED_VIDEO_REQUEST_CODE) {
+
+                // check the engagement status
+                String engagementResult = data.getStringExtra(RewardedVideoActivity.ENGAGEMENT_STATUS);
+                switch (engagementResult) {
+                    case RewardedVideoActivity.REQUEST_STATUS_PARAMETER_FINISHED_VALUE:
+                        // The user watched the entire video and will be rewarded
+                        Log.d(TAG, "The video ad was dismissed because the user completed it");
+                        sendEvent("rewardedVideoClosedByUser", null);
+                        break;
+                    case RewardedVideoActivity.REQUEST_STATUS_PARAMETER_ABORTED_VALUE:
+                        // The user stopped the video early and will not be rewarded
+                        Log.d(TAG, "The video ad was dismissed because the user explicitly closed it");
+                        sendEvent("rewardedVideoClosedByError", null);
+                        break;
+                    case RewardedVideoActivity.REQUEST_STATUS_PARAMETER_ERROR:
+                        // An error occurred while showing the video and the user will not be rewarded
+                        Log.d(TAG, "The video ad was dismissed error during playing");
+                        sendEvent("rewardedVideoClosedByError", null);
+                        break;
+                }
+            }
+        }
+    };
 
     public RNFyberRewardedVideoModule(ReactApplicationContext reactContext) {
         super(reactContext);
         mContext = reactContext;
+        // Add the listener for `onActivityResult`
+        reactContext.addActivityEventListener(mActivityEventListener);
     }
 
     @Override
@@ -62,7 +94,6 @@ public class RNFyberRewardedVideoModule extends ReactContextBaseJavaModule {
                         Log.d(TAG, "Offers are available");
                         mRewardedVideoIntent = intent;
                         sendEvent("rewardedVideoReceived", null);
-
                     }
 
                     @Override
