@@ -20,8 +20,8 @@ class FyberBanner extends Component {
   }
 }
 
-const FyberOfferWall = NativeModules['RNFyberOfferWall'];
 const FyberUser = NativeModules['RNFyberUser'];
 import FyberRewardedVideo from './RNFyberRewardedVideo';
+import FyberOfferWall from './RNFyberOfferWall';
 
 module.exports = {FyberBanner, FyberOfferWall, FyberRewardedVideo, FyberUser};

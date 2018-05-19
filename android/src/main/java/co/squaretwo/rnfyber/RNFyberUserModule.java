@@ -2,15 +2,14 @@ package co.squaretwo.rnfyber;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.devsupport.JSException;
+import com.fyber.Fyber;
 import com.fyber.user.User;
-
-import org.json.JSONException;
 
 /**
  * Created by Heiko Weber on 17/05/2018.
@@ -52,5 +51,11 @@ public class RNFyberUserModule extends ReactContextBaseJavaModule {
                 }
             }
         });
+    }
+
+    @ReactMethod
+    public void startFyberSDK(final String appId, final String securityToken, final String userId) {
+        Log.d(TAG, "startFyberSDK for appId:" + appId);
+        Fyber.with(appId, getCurrentActivity()).withUserId(userId).withSecurityToken(securityToken).start();
     }
 }

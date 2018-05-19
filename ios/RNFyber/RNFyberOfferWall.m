@@ -6,8 +6,16 @@
 //
 #import "RNFyberOfferWall.h"
 
+NSString *const kOfferWallAvailable = @"offerWallAvailable";
+NSString *const kOfferWallUnavailable = @"offerWallUnavailable";
+NSString *const kOfferWallFailedToLoad = @"offerWallFailedToLoad";
+NSString *const kOfferWallDidStart = @"offerWallDidStart";
+NSString *const kOfferWallClosed = @"offerWallClosed";
+
 @implementation RNFyberOfferWall {
 }
+
+@synthesize bridge = _bridge;
 
 // Run on the main thread
 - (dispatch_queue_t)methodQueue
@@ -26,6 +34,15 @@ RCT_EXPORT_METHOD(initializeOfferWall:(NSString *)appId securityToken:(NSString 
   [FyberSDK startWithOptions:options];
 }
 
+// Request the video before we need to display it
+RCT_EXPORT_METHOD(requestOfferWall:(RCTResponseSenderBlock)callback)
+{
+    NSLog(@"requestOfferWall!");
+    // Fyber iOS seems to have always Offers ...
+    [self sendEventWithName:kOfferWallAvailable body:nil];
+    callback(@[[NSNull null]]);
+}
+
 //
 // Show the Offer Wall
 //
@@ -35,7 +52,8 @@ RCT_EXPORT_METHOD(showOfferWall)
   FYBOfferWallViewController *offerWallViewController = [FyberSDK offerWallViewController];
   [offerWallViewController presentFromViewController:[UIApplication sharedApplication].delegate.window.rootViewController animated:YES completion:^{
 
-    NSLog(@"Offer Wall presented");
+      NSLog(@"Offer Wall presented");
+      [self sendEventWithName:kOfferWallDidStart body:nil];
 
   } dismiss:^(NSError *error) {
 
@@ -47,6 +65,7 @@ RCT_EXPORT_METHOD(showOfferWall)
       NSLog(@"Offer Wall error");
     }
 
+    [self sendEventWithName:kOfferWallClosed body:nil];
   }];
 }
 
