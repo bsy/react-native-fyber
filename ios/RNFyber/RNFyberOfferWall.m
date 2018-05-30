@@ -69,4 +69,14 @@ RCT_EXPORT_METHOD(showOfferWall)
   }];
 }
 
+- (NSArray<NSString *> *)supportedEvents {
+    return @[kOfferWallAvailable,
+             kOfferWallUnavailable,
+             kOfferWallFailedToLoad,
+             kOfferWallDidStart,
+             kOfferWallClosed
+            ];
+}
+
+
 @end
