@@ -82,27 +82,43 @@ public class RNFyberRewardedVideoModule extends ReactContextBaseJavaModule {
             @Override
             public void run() {
                 Log.d(TAG, ">> Requesting Rewarded Video");
+
                 requestCallback = new RequestCallback() {
+
+                    // There seems to be a bug in RewardedVideoRequester where this callback
+                    // is called more than once, so this is a workaround for that.
+                    private boolean shouldSendEvent = true;
+
                     @Override
                     public void onRequestError(RequestError requestError) {
-                        Log.d(TAG, "Something went wrong with the request: " + requestError.getDescription());
-                        sendEvent("rewardedVideoFailedToLoad", null);
+                        if (shouldSendEvent) {
+                            Log.d(TAG, "Something went wrong with the request: " + requestError.getDescription());
+                            sendEvent("rewardedVideoFailedToLoad", null);
+                            shouldSendEvent = false;
+                        }
                     }
 
                     @Override
                     public void onAdAvailable(Intent intent) {
-                        Log.d(TAG, "Offers are available");
-                        mRewardedVideoIntent = intent;
-                        sendEvent("rewardedVideoReceived", null);
+                        if (shouldSendEvent) {
+                            Log.d(TAG, "Offers are available");
+                            mRewardedVideoIntent = intent;
+                            sendEvent("rewardedVideoReceived", null);
+                            shouldSendEvent = false;
+                        }
                     }
 
                     @Override
                     public void onAdNotAvailable(AdFormat adFormat) {
-                        Log.d(TAG, "No ad available");
-                        sendEvent("rewardedVideoFailedToLoad", null);
-                        callback.invoke("Video is not ready.");
+                        if (shouldSendEvent) {
+                            Log.d(TAG, "No ad available");
+                            sendEvent("rewardedVideoFailedToLoad", null);
+                            callback.invoke("Video is not ready.");
+                            shouldSendEvent = false;
+                        }
                     }
                 };
+
                 RewardedVideoRequester.create(requestCallback).request(mContext);
             }
         });
