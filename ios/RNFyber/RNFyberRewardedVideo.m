@@ -80,7 +80,7 @@ RCT_EXPORT_METHOD(showRewardedVideo)
 
 
 -(void)rewardedVideoController:(FYBRewardedVideoController *)rewardedVideoController didDismissVideoWithReason:(FYBRewardedVideoControllerDismissReason)reason{
-    
+
     NSString *reasonDescription;
     switch (reason) {
         case FYBRewardedVideoControllerDismissReasonError:
@@ -95,7 +95,7 @@ RCT_EXPORT_METHOD(showRewardedVideo)
             reasonDescription = @"because the user explicitly closed it";
             break;
     }
-    
+
     NSLog(@"The video ad was dismissed %@", reasonDescription);
 }
 

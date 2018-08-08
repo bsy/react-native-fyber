@@ -26,6 +26,7 @@ public class RNFyberPackage implements ReactPackage {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new RNFyberOfferWallModule(reactContext));
         modules.add(new RNFyberRewardedVideoModule(reactContext));
+        modules.add(new RNFyberUserModule(reactContext));
         return modules;
     }
 

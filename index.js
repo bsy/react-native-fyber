@@ -1,6 +1,6 @@
 //
 // react-native-fyber
-// 
+//
 import React, {Component} from 'react';
 import {NativeModules, Text, View, requireNativeComponent} from 'react-native'
 
@@ -20,7 +20,8 @@ class FyberBanner extends Component {
   }
 }
 
-const FyberOfferWall = NativeModules['RNFyberOfferWall'];
+const FyberUser = NativeModules['RNFyberUser'];
 import FyberRewardedVideo from './RNFyberRewardedVideo';
+import FyberOfferWall from './RNFyberOfferWall';
 
-module.exports = {FyberBanner, FyberOfferWall, FyberRewardedVideo};
+module.exports = {FyberBanner, FyberOfferWall, FyberRewardedVideo, FyberUser};
