@@ -93,6 +93,7 @@ RCT_EXPORT_METHOD(showRewardedVideo)
             break;
         case FYBRewardedVideoControllerDismissReasonAborted:
             reasonDescription = @"because the user explicitly closed it";
+            [self sendEventWithName:kRewardedVideoClosedByUser body:nil];
             break;
     }
 
