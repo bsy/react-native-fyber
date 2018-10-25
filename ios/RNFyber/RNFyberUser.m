@@ -20,13 +20,15 @@ RCT_EXPORT_MODULE();
 // set Fyber user properties
 RCT_EXPORT_METHOD(set:(NSDictionary *)uprops)
 {
-    id obj = uprops[@"age"];
-    if (obj != (id)[NSNull null]) {
-        [[FyberSDK instance].user setAge:[obj integerValue]];
+    if (uprops[@"age"] != nil && [uprops[@"age"] respondsToSelector:@selector(integerValue)]) {
+        [[FyberSDK instance].user setAge:[uprops[@"age"] integerValue]];
     }
-    obj = uprops[@"custom"];
-    if (obj != (id)[NSNull null]) {
-        [[FyberSDK instance].user setCustomParameters:obj];
+    if (uprops[@"custom"] != nil && [uprops[@"custom"] isKindOfClass:[NSDictionary class]]) {
+        [[FyberSDK instance].user setCustomParameters:uprops[@"custom"]];
+    }
+
+    if (uprops[@"userid"] != nil && [uprops[@"userid"] isKindOfClass:[NSString class]]) {
+        [FyberSDK instance].userId = uprops[@"userid"];
     }
 }
 
