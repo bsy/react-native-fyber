@@ -217,6 +217,22 @@
  */
 - (void)setGDPRConsent:(BOOL)gdprConsent;
 
+/**
+ *  Sets the consent data.
+ *
+ *  @param gdprConsentData The consent data
+ *
+ *  @since v8.22.0
+ */
+- (void)setGDPRConsentData:(NSDictionary<NSString *, NSString *> *)gdprConsentData;
+
+/**
+ *  Clears the consent data of the user.
+ *
+ *  @since v8.22.0
+ */
+- (void)clearGDPRConsentData;
+
 ///-------------------------
 /// Getters
 ///-------------------------

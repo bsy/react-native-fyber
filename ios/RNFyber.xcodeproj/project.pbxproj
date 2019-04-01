@@ -46,7 +46,6 @@
 		420DF7F820ADAC2C002E5C74 /* FYBInterstitialNetworkAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBInterstitialNetworkAdapter.h; sourceTree = "<group>"; };
 		420DF7F920ADAC2C002E5C74 /* FYBRewardedVideoControllerDismissReason.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBRewardedVideoControllerDismissReason.h; sourceTree = "<group>"; };
 		420DF7FA20ADAC2C002E5C74 /* FYBBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBBannerView.h; sourceTree = "<group>"; };
-		420DF7FB20ADAC2C002E5C74 /* libFyberSDK-8.21.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libFyberSDK-8.21.0.a"; sourceTree = "<group>"; };
 		420DF7FD20ADAC2C002E5C74 /* StartedBundleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StartedBundleIcon.png; sourceTree = "<group>"; };
 		420DF7FE20ADAC2C002E5C74 /* FYBBackIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "FYBBackIcon@2x.png"; sourceTree = "<group>"; };
 		420DF7FF20ADAC2C002E5C74 /* UnstartedBundleIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UnstartedBundleIcon.png; sourceTree = "<group>"; };
@@ -90,6 +89,7 @@
 		420DF82520ADAC2D002E5C74 /* FYBMediationBundleInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FYBMediationBundleInfo.h; sourceTree = "<group>"; };
 		420DF85020AE02ED002E5C74 /* RNFyberUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFyberUser.m; sourceTree = "<group>"; };
 		420DF85120AE02ED002E5C74 /* RNFyberUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFyberUser.h; sourceTree = "<group>"; };
+		42DBC21E2252732E00D51C2A /* libFyberSDK-8.22.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libFyberSDK-8.22.0.a"; sourceTree = "<group>"; };
 		B52AD3A91DDA5401008AE987 /* RNFyberRewardedVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNFyberRewardedVideo.h; sourceTree = "<group>"; };
 		B52AD3AA1DDA5401008AE987 /* RNFyberRewardedVideo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNFyberRewardedVideo.m; sourceTree = "<group>"; };
 		B57498561CEFB0AB002F1EFF /* libRNFyber.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNFyber.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -121,7 +121,7 @@
 				420DF7F820ADAC2C002E5C74 /* FYBInterstitialNetworkAdapter.h */,
 				420DF7F920ADAC2C002E5C74 /* FYBRewardedVideoControllerDismissReason.h */,
 				420DF7FA20ADAC2C002E5C74 /* FYBBannerView.h */,
-				420DF7FB20ADAC2C002E5C74 /* libFyberSDK-8.21.0.a */,
+				42DBC21E2252732E00D51C2A /* libFyberSDK-8.22.0.a */,
 				420DF7FC20ADAC2C002E5C74 /* Resources */,
 				420DF80120ADAC2C002E5C74 /* FYBIntegrationAnalyzerViewController.h */,
 				420DF80220ADAC2C002E5C74 /* FYBIntegrationAnalyzerError.h */,
@@ -245,6 +245,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = B574984D1CEFB0AB002F1EFF;
